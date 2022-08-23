@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#game {
+	width: 300px;
+	height: 500px;
+	margin: auto;
+	margin-top: 5vw;
+	position: relative;
+	background: url('img/universe.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px solid black;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#character {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	background: url('img/jerzy.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-left: 5%;
+	bottom: 0;
+	left: 100px;
+}
+#block {
+	width: 100px;
+	height: 100px;
+	top: 500px;
+	position: relative;
+	margin-left: 2%;
+	background: url('img/grocka.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	
+	animation: slide 1s infinite linear;
+}
+@keyframes slide{
+	0%{top: -100px}
+	25%{top: 100px}
+	70%{top: 300px}
+	100%{top: 500px}
+}
+#btn_ref {
+	display: none;
+	position: absolute;
+	width: 30%;
+	height: 8%;
+	top: 40%;
+	left: 50%;
+	font-size: 1em;
+	font-weight: bold;
+	border: 1px solid;
+	border-radius:  5px;
+	box-shadow: 1px 3px #888888;
+	transform: translateX(-50%);
+	cursor: pointer;
+}
+
+#left, #rigth {
+	width: 50%;
+	height: 500px;
+	position: absolute;
+}
+#right {
+	left: 50%;
+}
