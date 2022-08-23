@@ -2,6 +2,8 @@ const btnRef = document.getElementById("btn_ref");
 let counterDisplayElem = document.querySelector("counter-display");
 const block = document.getElementById("block");
 let counter = 0;
+// const audioScore = document.getElementById('audioScore');
+
 
 function moveLeft() {
     let left = parseInt(
@@ -35,6 +37,7 @@ block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
     left = random * 100;
     block.style.left = left + "px";
+	// audioScore.play();
     counter++;
 });
 

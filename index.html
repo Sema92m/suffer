@@ -5,19 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
+        
         <title>Jerzy</title>
     </head>
     <body>
+		<audio
+            id="audioBG"
+            src="audio/backgroundmusic.mp3"
+            webkit-playsinline="true"
+			preload = 'auto'
+            playsinline="true"
+            autoplay=""
+            loop
+            id="audio_bg"
+        ></audio>
+        <audio
+            id="audioScore" src="audio/score.mp3"></audio>
         <div id="game">
-			<h1 class="counter-display">0</h1>
-			<button id="btn_ref" onClick="window.location.reload();">Refresh</button>
+            <h1 class="counter-display">0</h1>
+            <button id="btn_ref" onClick="window.location.reload();">
+                Refresh
+            </button>
             <div id="left"></div>
             <div id="right"></div>
             <div id="block"></div>
             <div id="character"></div>
-            
         </div>
-		
 
         <script src="app.js"></script>
     </body>
