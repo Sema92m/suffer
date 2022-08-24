@@ -1,0 +1,13 @@
+{
+    "folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Dinosor\\audio"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "sufers"
+    }
+}

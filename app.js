@@ -1,9 +1,10 @@
 const btnRef = document.getElementById("btn_ref");
 let counterDisplayElem = document.querySelector("counter-display");
 const block = document.getElementById("block");
+const checkbox = document.querySelector(".checkbox");
 let counter = 0;
-// const audioScore = document.getElementById('audioScore');
-
+const audioBg = document.querySelector("#audio-bg");
+// const sound = document.getElementById("sound");
 
 function moveLeft() {
     let left = parseInt(
@@ -37,7 +38,7 @@ block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
     left = random * 100;
     block.style.left = left + "px";
-	// audioScore.play();
+    // audioScore.play();
     counter++;
 });
 
@@ -45,22 +46,42 @@ function updateDisplay() {
     counterDisplayElem.innerHTML = counter;
 }
 
-setInterval(function () {
-    let characterLeft = parseInt(
-        window.getComputedStyle(character).getPropertyValue("left")
-    );
-    let blockLeft = parseInt(
-        window.getComputedStyle(block).getPropertyValue("left")
-    );
-    let blockTop = parseInt(
-        window.getComputedStyle(block).getPropertyValue("top")
-    );
-    if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
-        btnRef.style.display = "block";
-        block.style.animation = "none";
-        alert("Game over. Score: " + counter);
+// setInterval(function () {
+//     let characterLeft = parseInt(
+//         window.getComputedStyle(character).getPropertyValue("left")
+//     );
+//     let blockLeft = parseInt(
+//         window.getComputedStyle(block).getPropertyValue("left")
+//     );
+//     let blockTop = parseInt(
+//         window.getComputedStyle(block).getPropertyValue("top")
+//     );
+//     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
+//         btnRef.style.display = "block";
+//         block.style.animation = "none";
+//         alert("Game over. Score: " + counter);
+//     }
+// }, 10);
+
+// checkbox Sound ON
+function soundOn() {
+    const audio = new Audio();
+    audio.preload = "auto";
+    audio.src = "./audio/score.mp3";
+    audio.play();
+}
+
+// sound.onclick = soundOn;
+
+
+document.querySelector(".checkbox").onchange = function () {
+    if (this.checked) {
+        audioBg.play();
+    } else {
+        audioBg.stop();
+        
     }
-}, 10);
+};
 
 document.getElementById("left").addEventListener("touchstart", moveLeft);
 document.getElementById("right").addEventListener("touchstart", moveRight);
