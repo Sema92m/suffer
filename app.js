@@ -1,10 +1,8 @@
 const btnRef = document.getElementById("btn_ref");
-let counterDisplayElem = document.querySelector("counter-display");
 const block = document.getElementById("block");
-const checkbox = document.querySelector(".checkbox");
+const AUDIO = new Audio('./audio/backgroundmusic.mp3');
 let counter = 0;
-const audioBg = document.querySelector("#audio-bg");
-// const sound = document.getElementById("sound");
+let counterDisplayElem = document.querySelector("counter-display");
 
 function moveLeft() {
     let left = parseInt(
@@ -15,6 +13,7 @@ function moveLeft() {
         character.style.left = left + "px";
     }
 }
+
 function moveRight() {
     let left = parseInt(
         window.getComputedStyle(character).getPropertyValue("left")
@@ -42,9 +41,9 @@ block.addEventListener("animationiteration", () => {
     counter++;
 });
 
-function updateDisplay() {
-    counterDisplayElem.innerHTML = counter;
-}
+// function updateDisplay() {
+//     counterDisplayElem.innerHTML = counter;
+// }
 
 // setInterval(function () {
 //     let characterLeft = parseInt(
@@ -63,25 +62,17 @@ function updateDisplay() {
 //     }
 // }, 10);
 
-// checkbox Sound ON
-function soundOn() {
-    const audio = new Audio();
-    audio.preload = "auto";
-    audio.src = "./audio/score.mp3";
-    audio.play();
-}
-
-// sound.onclick = soundOn;
-
-
-document.querySelector(".checkbox").onchange = function () {
-    if (this.checked) {
-        audioBg.play();
-    } else {
-        audioBg.stop();
-        
-    }
-};
 
 document.getElementById("left").addEventListener("touchstart", moveLeft);
 document.getElementById("right").addEventListener("touchstart", moveRight);
+
+
+function playSound() {
+    if (document.getElementById('audio-on').checked){
+        AUDIO.play();
+        AUDIO.loop();
+    }else{
+        AUDIO.pause();
+    }
+}
+

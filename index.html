@@ -10,28 +10,34 @@
     </head>
     <body>
         <audio
-            id="audio-bg"
+            id="audiobg"
             src="audio/backgroundmusic.mp3"
             preload="auto"
         ></audio>
-        <!-- <audio id="audioScore" src="audio/score.mp3"></audio> -->
-        <div id="game">
-            <h1 class="counter-display">0</h1>
-            <button id="btn_ref" onClick="window.location.reload();">
-                Refresh
-            </button>
-            <div id="left"></div>
-            <div id="right"></div>
-            <div id="block"></div>
-            <div id="character"></div>
-            <div>
-                <label class="checkbox"
-                    >Music
-                    <input type="checkbox" class="sound-on" />
-                    <span class="checkmark"></span>
-                </label>
+        <div class="container">
+            <!-- <audio id="audioScore" src="audio/score.mp3"></audio> -->
+            <div id="game">
+                <button id="btn_ref" onClick="window.location.reload();">
+                    Refresh
+                </button>
+                <div id="left"></div>
+                <div id="right"></div>
+                <div id="block"></div>
+                <div id="character"></div>
             </div>
-            <div id="sound">Sound</div>
+            <div class="sound-checkbox">
+                <label class="toggler-wrapper style-1">
+                    <input
+                        type="checkbox"
+                        id="audio-on"
+                        onclick="playSound();"
+                    />
+                    <div class="toggler-slider">
+                        <div class="toggler-knob"></div>
+                    </div>
+                </label>
+                <div class="badge">Sound</div>
+            </div>
         </div>
 
         <script src="app.js"></script>
