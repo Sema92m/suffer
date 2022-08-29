@@ -1,3 +1,6 @@
+@import url("./css/checkbox.css");
+@import url("./css/keyframes.css");
+
 * {
     padding: 0;
     margin: 0;
@@ -21,11 +24,7 @@
     overflow: hidden;
     animation: backgroundMove 25s linear infinite;
 }
-@keyframes backgroundMove {
-    to {
-        background-position: 0 500px;
-    }
-}
+
 #character {
     width: 100px;
     height: 100px;
@@ -37,23 +36,6 @@
     bottom: 5px;
     left: 100px;
     animation: characterMove 2s linear infinite;
-}
-@keyframes characterMove {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(10deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-10deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
 }
 
 #block {
@@ -68,35 +50,12 @@
     animation: slide 1s infinite linear, blockRotate 2s infinite linear;
 }
 
-@keyframes blockRotate {
-    0% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-@keyframes slide {
-    0% {
-        top: -100px;
-    }
-    25% {
-        top: 100px;
-    }
-    70% {
-        top: 300px;
-    }
-    100% {
-        top: 500px;
-    }
-}
 #counter-display {
     position: absolute;
     left: 10px;
     top: 10px;
     font-size: 30px;
     color: #9c9aff;
-    
 }
 
 #btn_ref {
@@ -127,6 +86,7 @@
 #right {
     left: 50%;
 }
+
 #gameover-alert {
     display: none;
     color: #fff;
@@ -136,116 +96,4 @@
     left: 45px;
     text-shadow: 2px 2px #9c9aff;
     animation: fadeIn 1s linear;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
-}
-
-/*CHECKBOX */
-#switch-container {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    margin: 5px 0;
-    transform: scale(0.8);
-    transition: 2s;
-}
-
-#sound-off-icon,
-#sound-on-icon {
-    z-index: 0;
-    position: absolute;
-}
-
-#sound-off-icon {
-    top: 9px;
-    right: 7px;
-}
-
-#sound-on-icon {
-    top: 0.5rem;
-    left: 4px;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.switch:before input {
-    content: "switch";
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-input:before {
-    content: "input";
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #9c9aff;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #2196f3;
-}
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
-}
-input:checked + .slider:before {
-    content: "";
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.svg-icon {
-    width: 1em;
-    height: 1em;
-}
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
-    fill: #fff;
-}
-.svg-icon circle {
-    stroke: #fff;
-    stroke-width: 1;
 }

@@ -1,0 +1,55 @@
+@keyframes backgroundMove {
+    to {
+        background-position: 0 500px;
+    }
+}
+
+@keyframes characterMove {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes blockRotate {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes slide {
+    0% {
+        top: -100px;
+    }
+    25% {
+        top: 100px;
+    }
+    70% {
+        top: 300px;
+    }
+    100% {
+        top: 500px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
