@@ -37,7 +37,7 @@ let counterSeconds = setInterval(() => {
     counterDisplayElem.innerHTML = ++count;
 }, 1000);
 
-block.addEventListener("animationiteration", () => {
+let move = block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
     left = random * 100;
     block.style.left = left + "px";
