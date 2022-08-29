@@ -33,7 +33,7 @@
     background: url("img/jerzy.png");
     background-size: contain;
     background-repeat: no-repeat;
-    margin-left: 5%;
+    background-position: center;
     bottom: 5px;
     left: 100px;
     animation: characterMove 2s linear infinite;
@@ -61,10 +61,10 @@
     height: 100px;
     top: 500px;
     position: absolute;
-    margin-left: 2%;
     background: url("img/grocka.png");
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     animation: slide 1s infinite linear, blockRotate 2s infinite linear;
 }
 

@@ -33,12 +33,9 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-function counterSeconds() {
+let counterSeconds = setInterval(() => {
     counterDisplayElem.innerHTML = ++count;
-}
-setInterval(counterSeconds,1000);
-
-
+},1000)
 
 block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
@@ -63,6 +60,7 @@ setInterval(function () {
         gameoverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
         counterDisplayElem.style.scale = "2";
+        clearInterval(counterSeconds);
     }
 }, 10);
 
