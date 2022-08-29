@@ -63,7 +63,7 @@
     position: absolute;
     width: 30%;
     height: 8%;
-    top: 50%;
+    top: 40%;
     left: 50%;
     color: #9c9aff;
     background-color: #fff;
@@ -80,7 +80,8 @@
 #left,
 #right {
     width: 50%;
-    height: 500px;
+    height: 250px;
+    bottom: 0;
     position: absolute;
 }
 #right {

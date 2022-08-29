@@ -1,4 +1,4 @@
-const btnRef = document.getElementById("btn-refresh");
+const btnRefresh = document.getElementById("btn-refresh");
 const block = document.getElementById("block");
 const AUDIO = new Audio("./audio/backgroundmusic.mp3");
 let counterDisplayElem = document.getElementById("counter-display");
@@ -35,13 +35,12 @@ document.addEventListener("keydown", (event) => {
 
 let counterSeconds = setInterval(() => {
     counterDisplayElem.innerHTML = ++count;
-},1000)
+}, 1000);
 
 block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
     left = random * 100;
     block.style.left = left + "px";
-    
 });
 
 setInterval(function () {
@@ -55,7 +54,7 @@ setInterval(function () {
         window.getComputedStyle(block).getPropertyValue("top")
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
-        btnRef.style.display = "block";
+        btnRefresh.style.display = "block";
         block.style.animation = "none";
         gameoverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
