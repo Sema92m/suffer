@@ -1,4 +1,4 @@
-const btnRef = document.getElementById("btn_ref");
+const btnRef = document.getElementById("btn-refresh");
 const block = document.getElementById("block");
 const AUDIO = new Audio("./audio/backgroundmusic.mp3");
 let counterDisplayElem = document.getElementById("counter-display");

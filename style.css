@@ -58,7 +58,7 @@
     color: #9c9aff;
 }
 
-#btn_ref {
+#btn-refresh {
     display: none;
     position: absolute;
     width: 30%;
@@ -78,7 +78,7 @@
 }
 
 #left,
-#rigth {
+#right {
     width: 50%;
     height: 500px;
     position: absolute;
