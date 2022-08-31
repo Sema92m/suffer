@@ -5,10 +5,14 @@
     top: 10px;
     margin: 5px 0;
     transform: scale(0.8);
-    transition: 2s;
+    transition: 1s;
     z-index: 3;
+    opacity: 0.5;
 }
-
+#switch-container:hover {
+    opacity: 1;
+    transform: scale(1);
+}
 #sound-off-icon,
 #sound-on-icon {
     z-index: 0;

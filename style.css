@@ -25,7 +25,7 @@
     animation: backgroundMove 25s linear infinite;
 }
 
-#character {
+.character {
     width: 100px;
     height: 100px;
     position: absolute;
@@ -36,9 +36,10 @@
     bottom: 5px;
     left: 100px;
     animation: characterMove 2s linear infinite;
+    animation-play-state: paused;
 }
 
-#block {
+.block {
     width: 100px;
     height: 100px;
     top: 500px;
@@ -48,7 +49,54 @@
     background-repeat: no-repeat;
     background-position: center;
     animation: slide 1s infinite linear, blockRotate 2s infinite linear;
+    animation-play-state: paused;
 }
+.active {
+    animation-play-state: running;
+}
+
+/* .a::after {
+    font: 800 40px system-ui;
+    content: counter(count);
+    animation: counter 10s linear infinite;
+    counter-reset: count 0;
+    color: #fff;
+}
+@keyframes counter {
+    0% {
+        counter-increment: count 0;
+    }
+    10% {
+        counter-increment: count 1;
+    }
+    20% {
+        counter-increment: count 2;
+    }
+    30% {
+        counter-increment: count 3;
+    }
+    40% {
+        counter-increment: count 4;
+    }
+    50% {
+        counter-increment: count 5;
+    }
+    60% {
+        counter-increment: count 6;
+    }
+    70% {
+        counter-increment: count 7;
+    }
+    80% {
+        counter-increment: count 8;
+    }
+    90% {
+        counter-increment: count 9;
+    }
+    100% {
+        counter-increment: count 10;
+    }
+} */
 
 #counter-display {
     position: absolute;
@@ -58,8 +106,8 @@
     color: #9c9aff;
 }
 
-
-#btn-refresh {
+#btn-refresh,
+#btn-start {
     display: none;
     position: absolute;
     width: 30%;
@@ -77,6 +125,16 @@
     cursor: pointer;
     animation: fadeIn 1s linear;
     z-index: 3;
+}
+
+#btn-start {
+    display: block;
+    top: 5%;
+    width: 45%;
+    opacity: 0.5;
+}
+#btn-start:hover {
+    opacity: 1;
 }
 
 #left,

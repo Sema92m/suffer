@@ -1,9 +1,15 @@
 const btnRefresh = document.getElementById("btn-refresh");
-const block = document.getElementById("block");
-const AUDIO = new Audio("./audio/backgroundmusic.mp3");
+const btnStart = document.getElementById("btn-start");
+const block = document.querySelector(".block");
+const character = document.querySelector(".character");
+const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
+const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
+const AUDIO_MOVE = new Audio("./audio/move.mp3");
 let counterDisplayElem = document.getElementById("counter-display");
 let gameoverAlert = document.getElementById("gameover-alert");
+
 let count = 0;
+AUDIO_BG.volume = 0.3;
 
 function moveLeft() {
     let left = parseInt(
@@ -12,6 +18,7 @@ function moveLeft() {
     left -= 100;
     if (left >= 0) {
         character.style.left = left + "px";
+        AUDIO_MOVE.play();
     }
 }
 function moveRight() {
@@ -21,8 +28,20 @@ function moveRight() {
     left += 100;
     if (left < 300) {
         character.style.left = left + "px";
+        AUDIO_MOVE.play();
     }
 }
+
+function startGame() {
+    block.classList.toggle("active");
+    character.classList.toggle("active");
+    AUDIO_BG.play();
+}
+btnStart.onclick = startGame;
+
+let counterSeconds = setInterval(() => {
+    counterDisplayElem.innerHTML = ++count;
+}, 1000);
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
@@ -32,10 +51,6 @@ document.addEventListener("keydown", (event) => {
         moveRight();
     }
 });
-
-let counterSeconds = setInterval(() => {
-    counterDisplayElem.innerHTML = ++count;
-}, 1000);
 
 let move = block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
@@ -55,10 +70,13 @@ setInterval(function () {
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
         btnRefresh.style.display = "block";
+        btnStart.style.display = "none";
         block.style.animation = "none";
         gameoverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
         counterDisplayElem.style.scale = "2";
+        AUDIO_BG.pause();
+        AUDIO_GAMEOVER.play();
         clearInterval(counterSeconds);
     }
 }, 10);
@@ -68,8 +86,8 @@ document.getElementById("right").addEventListener("touchstart", moveRight);
 
 function playSound() {
     if (document.getElementById("audio-on").checked) {
-        AUDIO.play();
+        AUDIO_BG.play();
     } else {
-        AUDIO.pause();
+        AUDIO_BG.pause();
     }
 }
