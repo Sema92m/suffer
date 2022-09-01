@@ -10,22 +10,35 @@
         <title>Jerzy</title>
     </head>
     <body>
-        <div class="container">
-            <div id="game">
-                <div id="counter-display">0</div>
-                <h1 id="gameover-alert">GAME OVER</h1>
-                <button id="btn-refresh" onClick="window.location.reload();">
-                    Refresh
-                </button>
-                <button id="btn-start">
-                    START / PAUSE
-                </button>
-                <div id="left"></div>
-                <div id="right"></div>
-                <div id="block" class="block"></div>
-                <div id="character" class="character"></div>
-                <div class="sound_off_btn" id="sound_off_btn">
-                    </div>
+        <div class="main">
+            <div class="container">
+                <div id="game">
+                    <div id="counter-display">0</div>
+                    <h2 id="gameover-alert">GAME OVER</h2>
+                    <h2 id="gamestart-alert">Press SPACE to <p>start</p></h2>
+                    <button id="btn-refresh" onClick="window.location.reload();">
+                        Refresh
+                    </button>
+                    <button id="btn-pause" >
+                        START / PAUSE
+                    </button>
+                    <div id="left"></div>
+                    <div id="right"></div>
+                    <div id="block" class="block"></div>
+                    <div id="character" class="character"></div>
+                    <div class="sound_off_btn" id="sound_off_btn">
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="faces">
+            <div class="container">
+                <h3 class="title_select_hero">⬇Select HERO⬇</h3>
+                <div class="facechange_container">
+                    <div class="face_one"></div>
+                    <div class="face_two"></div>
+                    <div class="face_three"></div>
+                </div>
             </div>
         </div>
 

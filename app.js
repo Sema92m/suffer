@@ -1,29 +1,90 @@
 const btnRefresh = document.getElementById("btn-refresh");
-const btnStart = document.getElementById("btn-start");
+const btnPause = document.getElementById("btn-pause");
 const btnSound = document.querySelector(".sound_off_btn");
 const block = document.querySelector(".block");
 const character = document.querySelector(".character");
 let counterDisplayElem = document.getElementById("counter-display");
-let gameoverAlert = document.getElementById("gameover-alert");
+let gameOverAlert = document.getElementById("gameover-alert");
+let gameStartAlert = document.getElementById("gamestart-alert");
 const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
 const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
 const AUDIO_MOVE = new Audio("./audio/move.mp3");
 let count = 0;
 
+const faceOne = document.querySelector(".face_one");
+const faceTwo = document.querySelector(".face_two");
+const faceThree = document.querySelector(".face_three");
 
+function aaa() {
+    if (character.classList.contains("one")) {
+        character.classList.remove("one");
+    }
+    if (character.classList.contains("two")) {
+        character.classList.remove("two");
+    }
+    if (character.classList.contains("three")) {
+        character.classList.remove("three");
+    }
+}
+
+
+function changeFaceOne() {
+    aaa();
+    character.classList.add('one');
+}
+function changeFaceTwo() {
+    aaa();
+    character.classList.add('two');
+}
+function changeFaceThree() {
+    aaa();
+    character.classList.add('three');
+}
+
+faceOne.onclick = changeFaceOne;
+faceTwo.onclick = changeFaceTwo;
+faceThree.onclick = changeFaceThree;
+
+
+
+document.addEventListener("keypress", function (event) {
+    if (event.key === "r") {
+        btnRefresh.click();
+    }
+});
 
 AUDIO_BG.volume = 0.2;
 AUDIO_BG.loop = true;
 
+document.addEventListener("keypress", function (event) {
+    if (event.key === " ") {
+        startGame();
+    }
+});
+
+document.addEventListener("keypress", function (event) {
+    if (event.key === "r") {
+        btnRefresh.click();
+    }
+});
 
 function soundOnOff() {
-    btnSound.classList.toggle('sound_on');
-    if(btnSound.classList.contains('sound_on')){AUDIO_BG.play();}
-    else{AUDIO_BG.pause();}
-  
+    btnSound.classList.toggle("sound_on");
+    if (btnSound.classList.contains("sound_on")) {
+        AUDIO_BG.play();
+    } else {
+        AUDIO_BG.pause();
+    }
 }
 btnSound.onclick = soundOnOff;
 
+function startGame() {
+    block.classList.toggle("active");
+    character.classList.toggle("active");
+    gameStartAlert.style.display = "none ";
+    soundOnOff();
+}
+btnPause.onclick = startGame;
 
 function moveLeft() {
     let left = parseInt(
@@ -45,18 +106,6 @@ function moveRight() {
         AUDIO_MOVE.play();
     }
 }
-
-function startGame() {
-    block.classList.toggle("active");
-    character.classList.toggle("active");
-    AUDIO_BG.play();
-}
-btnStart.onclick = startGame;
-
-
-
-
-
 
 let counterSeconds = setInterval(() => {
     counterDisplayElem.innerHTML = ++count;
@@ -89,9 +138,9 @@ setInterval(function () {
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
         btnRefresh.style.display = "block";
-        btnStart.style.display = "none";
+        btnPause.style.display = "none";
         block.style.animation = "none";
-        gameoverAlert.style.display = "block";
+        gameOverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
         counterDisplayElem.style.scale = "2";
         AUDIO_BG.pause();
@@ -102,5 +151,3 @@ setInterval(function () {
 
 document.getElementById("left").addEventListener("touchstart", moveLeft);
 document.getElementById("right").addEventListener("touchstart", moveRight);
-
-
