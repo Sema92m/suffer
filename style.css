@@ -125,6 +125,7 @@
     cursor: pointer;
     animation: fadeIn 1s linear;
     z-index: 3;
+    user-select: none;
 }
 
 #btn-start {
@@ -157,4 +158,23 @@
     left: 45px;
     text-shadow: 2px 2px #9c9aff;
     animation: fadeIn 1s linear;
+}
+
+.sound_off_btn {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("./img/volume-mute.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 14px;
+    z-index: 3;
+    right: 10px;
+    cursor: pointer;
+}
+
+.sound_on {
+    background-image: url("./img/volume.png");
 }

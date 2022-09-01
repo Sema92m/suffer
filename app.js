@@ -1,15 +1,29 @@
 const btnRefresh = document.getElementById("btn-refresh");
 const btnStart = document.getElementById("btn-start");
+const btnSound = document.querySelector(".sound_off_btn");
 const block = document.querySelector(".block");
 const character = document.querySelector(".character");
+let counterDisplayElem = document.getElementById("counter-display");
+let gameoverAlert = document.getElementById("gameover-alert");
 const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
 const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
 const AUDIO_MOVE = new Audio("./audio/move.mp3");
-let counterDisplayElem = document.getElementById("counter-display");
-let gameoverAlert = document.getElementById("gameover-alert");
-
 let count = 0;
-AUDIO_BG.volume = 0.3;
+
+
+
+AUDIO_BG.volume = 0.2;
+AUDIO_BG.loop = true;
+
+
+function soundOnOff() {
+    btnSound.classList.toggle('sound_on');
+    if(btnSound.classList.contains('sound_on')){AUDIO_BG.play();}
+    else{AUDIO_BG.pause();}
+  
+}
+btnSound.onclick = soundOnOff;
+
 
 function moveLeft() {
     let left = parseInt(
@@ -38,6 +52,11 @@ function startGame() {
     AUDIO_BG.play();
 }
 btnStart.onclick = startGame;
+
+
+
+
+
 
 let counterSeconds = setInterval(() => {
     counterDisplayElem.innerHTML = ++count;
@@ -84,10 +103,4 @@ setInterval(function () {
 document.getElementById("left").addEventListener("touchstart", moveLeft);
 document.getElementById("right").addEventListener("touchstart", moveRight);
 
-function playSound() {
-    if (document.getElementById("audio-on").checked) {
-        AUDIO_BG.play();
-    } else {
-        AUDIO_BG.pause();
-    }
-}
+
