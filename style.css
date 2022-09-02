@@ -6,8 +6,7 @@
     padding: 0;
     margin: 0;
 }
-
-.main {
+body {
     margin-top: 10px;
 }
 .container {
@@ -33,7 +32,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    background-image: url("img/jerzy.png");
+    background-image: url("./img/jerzy.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -46,19 +45,10 @@
 .block {
     top: 500px;
     left: 0px;
-    background-image: url("img/grocka.png");
-    animation: slide 0.8s infinite linear, blockRotate 2s infinite linear;
+    background-image: url("./img/grocka.png");
+    animation: slide 1s infinite linear, blockRotate 2s infinite linear;
     animation-play-state: paused;
 }
-/* .character2 {
-    top: 500px;
-    left: 0px;
-    background-image: url("img/jerzy.png");
-    animation: slide 0.8s infinite linear, blockRotate 3s infinite linear;
-    animation-delay: 0.5s;
-    animation-play-state: paused;
-} */
-
 .active {
     animation-play-state: running;
 }
@@ -121,7 +111,7 @@
     position: absolute;
     width: 150px;
     height: 150px;
-    background-image: url("../img/grocka.png");
+    background-image: url("./img/grocka.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -153,7 +143,7 @@
 .face_three {
     width: 70px;
     height: 70px;
-    background-image: url("../img/faces/wojtec.png");
+    background-image: url("./img/faces/Wojtec.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -162,17 +152,17 @@
 }
 
 .one {
-    background-image: url("../img/faces/wojtec.png");
+    background-image: url("./img/faces/Wojtec.png");
 }
 
 .face_two,
 .two {
-    background-image: url("../img/jerzy.png");
+    background-image: url("./img/jerzy.png");
     animation: none;
     animation: characterMove 2s linear infinite reverse;
 }
 
 .face_three,
 .three {
-    background-image: url("../img/faces/kierownik.png");
+    background-image: url("./img/faces/Kierownik.png");
 }
