@@ -3,13 +3,15 @@ const btnPause = document.getElementById("btn-start");
 const btnSound = document.querySelector(".sound_off_btn");
 const block = document.querySelector(".block");
 const character = document.querySelector(".character");
-const HEARTS = document.querySelector(".hearts");
+
 let counterDisplayElem = document.getElementById("counter-display");
 let gameOverAlert = document.getElementById("gameover-alert");
 const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
-const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
-const AUDIO_MOVE = new Audio("./audio/move.mp3");
-const BLOCK_IMG = document.querySelector('.block_img');
+AUDIO_BG.loop = true;
+const AUDIO_GAMEOVER = new Audio("./audio/gameover.mp3");
+const AUDIO_MOVE = new Audio("./audio/move.wav");
+const BLOCK_IMG = document.querySelector(".block_img");
+const HEARTS = document.querySelector(".hearts");
 let count = 0;
 
 const faceOne = document.querySelector(".face_one");
@@ -52,7 +54,6 @@ faceOne.onclick = changeFaceOne;
 faceTwo.onclick = changeFaceTwo;
 faceThree.onclick = changeFaceThree;
 
-AUDIO_BG.volume = 0.4;
 AUDIO_BG.loop = true;
 
 function soundOnOff() {

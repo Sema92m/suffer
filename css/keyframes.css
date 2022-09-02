@@ -70,3 +70,40 @@
         background: #9c9aff;
     }
 }
+
+
+@keyframes floating-heart {
+    0% {
+        opacity: 0;
+        bottom: 0%;
+        left: 0%;
+    }
+    10% {
+        opacity: 1;
+        bottom: 20%;
+        left: 70%;
+    }
+    20% {
+        bottom: 40%;
+        left: 10%;
+    }
+    30% {
+        bottom: 60%;
+        left: 50%;
+    }
+    40% {
+        opacity: 1;
+        bottom: 80%;
+        left: 5%;
+    }
+    48% {
+        opacity: 0;
+        bottom: 100%;
+        left: 60%;
+    }
+    100% {
+        opacity: 0;
+        bottom: 100%;
+        left: 90%;
+    }
+}
