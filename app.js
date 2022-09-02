@@ -3,6 +3,7 @@ const btnPause = document.getElementById("btn-start");
 const btnSound = document.querySelector(".sound_off_btn");
 const block = document.querySelector(".block");
 const character = document.querySelector(".character");
+// const character2 = document.querySelector(".character2");
 
 let counterDisplayElem = document.getElementById("counter-display");
 let gameOverAlert = document.getElementById("gameover-alert");
@@ -67,6 +68,7 @@ btnSound.onclick = soundOnOff;
 function startGame() {
     block.classList.add("active");
     character.classList.add("active");
+    character2.classList.add("active");
     timestart();
     btnPause.style.display = "none";
     soundOnOff();
@@ -83,6 +85,8 @@ function moveLeft() {
         AUDIO_MOVE.play();
     }
 }
+
+
 function moveRight() {
     let left = parseInt(
         window.getComputedStyle(character).getPropertyValue("left")
@@ -108,16 +112,19 @@ let move = block.addEventListener("animationiteration", () => {
     left = random * 100;
     block.style.left = left + "px";
 });
-let move1 = block.addEventListener("animationiteration", () => {
-    let random = Math.floor(Math.random() * 3);
-    left = random * 100;
-    block.style.left = left + "px";
-});
+// let move2 = character2.addEventListener("animationiteration", () => {
+//     let random = Math.floor(Math.random() * 3);
+//     left = random * 100;
+//     character2.style.left = left + "px";
+// });
 
 setInterval(function () {
     let characterLeft = parseInt(
         window.getComputedStyle(character).getPropertyValue("left")
     );
+    // let characterLeft2 = parseInt(
+    //     window.getComputedStyle(character2).getPropertyValue("left")
+    // );
     let blockLeft = parseInt(
         window.getComputedStyle(block).getPropertyValue("left")
     );
@@ -127,6 +134,8 @@ setInterval(function () {
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
         btnRefresh.style.display = "block";
         block.style.animation = "none";
+
+        // character2.style.animation = "none";
 
         character.style.bottom = "70px";
         character.style.scale = "1.5";

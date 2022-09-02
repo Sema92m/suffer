@@ -47,9 +47,18 @@
     top: 500px;
     left: 0px;
     background-image: url("img/grocka.png");
-    animation: slide 1s infinite linear, blockRotate 2s infinite linear;
+    animation: slide 0.8s infinite linear, blockRotate 2s infinite linear;
     animation-play-state: paused;
 }
+/* .character2 {
+    top: 500px;
+    left: 0px;
+    background-image: url("img/jerzy.png");
+    animation: slide 0.8s infinite linear, blockRotate 3s infinite linear;
+    animation-delay: 0.5s;
+    animation-play-state: paused;
+} */
+
 .active {
     animation-play-state: running;
 }
