@@ -1,13 +1,15 @@
 const btnRefresh = document.getElementById("btn-refresh");
-const btnPause = document.getElementById("btn-pause");
+const btnPause = document.getElementById("btn-start");
 const btnSound = document.querySelector(".sound_off_btn");
 const block = document.querySelector(".block");
 const character = document.querySelector(".character");
+const HEARTS = document.querySelector(".hearts");
 let counterDisplayElem = document.getElementById("counter-display");
 let gameOverAlert = document.getElementById("gameover-alert");
 const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
 const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
 const AUDIO_MOVE = new Audio("./audio/move.mp3");
+const BLOCK_IMG = document.querySelector('.block_img');
 let count = 0;
 
 const faceOne = document.querySelector(".face_one");
@@ -20,7 +22,6 @@ function timestart() {
         counterDisplayElem.innerHTML = ++count;
     }, 1000);
 }
-
 
 function removeFaceClass() {
     if (character.classList.contains("one")) {
@@ -121,15 +122,18 @@ setInterval(function () {
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
         btnRefresh.style.display = "block";
-        // btnPause.style.display = "block";
         block.style.animation = "none";
+
         character.style.bottom = "70px";
-        character.style.filter = "grayscale(100%)";
-        character.style.scale = "2";
-        character.style.left = "100px";
+        character.style.scale = "1.5";
+        character.style.left = "30px";
+
+        BLOCK_IMG.style.display = "block";
+        HEARTS.style.display = "block";
         gameOverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
         counterDisplayElem.style.scale = "2";
+
         AUDIO_BG.pause();
         AUDIO_GAMEOVER.play();
         clearInterval(timer);
