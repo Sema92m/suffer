@@ -1,0 +1,15 @@
+.facechange_container {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #9c9aff;
+    animation: bgChangeColor 1s linear infinite alternate;
+}
+
+.title_select_hero {
+    display: flex;
+    justify-content: center;
+    animation: scalePluse 1s linear infinite alternate;
+}

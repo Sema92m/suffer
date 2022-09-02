@@ -1,4 +1,4 @@
-@import url("./css/checkbox.css");
+@import url("./css/faces.css");
 @import url("./css/keyframes.css");
 
 * {
@@ -52,49 +52,6 @@ body {
     animation-play-state: running;
 }
 
-/* .a::after {
-    font: 800 40px system-ui;
-    content: counter(count);
-    animation: counter 10s linear infinite;
-    counter-reset: count 0;
-    color: #fff;
-}
-@keyframes counter {
-    0% {
-        counter-increment: count 0;
-    }
-    10% {
-        counter-increment: count 1;
-    }
-    20% {
-        counter-increment: count 2;
-    }
-    30% {
-        counter-increment: count 3;
-    }
-    40% {
-        counter-increment: count 4;
-    }
-    50% {
-        counter-increment: count 5;
-    }
-    60% {
-        counter-increment: count 6;
-    }
-    70% {
-        counter-increment: count 7;
-    }
-    80% {
-        counter-increment: count 8;
-    }
-    90% {
-        counter-increment: count 9;
-    }
-    100% {
-        counter-increment: count 10;
-    }
-} */
-
 #counter-display {
     position: absolute;
     left: 10px;
@@ -107,32 +64,24 @@ body {
 #btn-pause {
     display: none;
     position: absolute;
-    width: 30%;
+    width: 15%;
     height: 8%;
     top: 45%;
-    left: 50%;
+    left: 42%;
     color: #9c9aff;
     background-color: #fff;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 1px 3px #9c9aff;
-    transform: translateX(-50%);
     cursor: pointer;
-    animation: fadeIn 1s linear;
     z-index: 3;
     user-select: none;
+    animation: scalePluse 1s linear alternate infinite;
 }
-
 #btn-pause {
     display: block;
-    top: 5%;
-    width: 45%;
-    opacity: 0.5;
-}
-#btn-pause:hover {
-    opacity: 1;
 }
 
 #left,
@@ -157,23 +106,6 @@ body {
     animation: fadeIn 1s linear;
 }
 
-#gamestart-alert {
-    display: block;
-    position: absolute;
-    color: #fff;
-    font-size: 35px;
-    top: 150px;
-    left: 30px;
-    text-shadow: 2px 2px #9c9aff;
-    animation: fadeIn 1s linear;
-}
-
-#gamestart-alert p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .sound_off_btn {
     position: absolute;
     display: block;
@@ -193,45 +125,29 @@ body {
     background-image: url("./img/volume.png");
 }
 
-.facechange_container {
-    width: 300px;
-    height: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #9c9aff;
-    animation: bgChangeColor 1s linear infinite alternate;
-}
-
 .face_one,
 .face_two,
 .face_three {
     width: 70px;
     height: 70px;
-    background-image: url("img/faces/Wojtec.png");
+    background-image: url("../img/faces/Wojtec.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    animation: faceMove 1s linear infinite alternate;
+    animation: scalePluse 1s linear infinite alternate;
     cursor: pointer;
 }
 
 .one {
-    background-image: url("img/faces/Wojtec.png");
+    background-image: url("../img/faces/Wojtec.png");
 }
 
 .face_two,
 .two {
-    background-image: url("img/jerzy.png");
+    background-image: url("../img/jerzy.png");
 }
 
 .face_three,
 .three {
-    background-image: url("img/faces/Kierownik.png");
-}
-
-.title_select_hero {
-    display: flex;
-    justify-content: center;
-    animation: faceMove 1s linear infinite alternate;
+    background-image: url("../img/faces/Kierownik.png");
 }

@@ -5,7 +5,6 @@ const block = document.querySelector(".block");
 const character = document.querySelector(".character");
 let counterDisplayElem = document.getElementById("counter-display");
 let gameOverAlert = document.getElementById("gameover-alert");
-let gameStartAlert = document.getElementById("gamestart-alert");
 const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
 const AUDIO_GAMEOVER = new Audio("./audio/gameover.wav");
 const AUDIO_MOVE = new Audio("./audio/move.mp3");
@@ -14,8 +13,16 @@ let count = 0;
 const faceOne = document.querySelector(".face_one");
 const faceTwo = document.querySelector(".face_two");
 const faceThree = document.querySelector(".face_three");
+let counterSeconds;
 
-function aaa() {
+function timestart() {
+    timer = setInterval(function () {
+        counterDisplayElem.innerHTML = ++count;
+    }, 1000);
+}
+
+
+function removeFaceClass() {
     if (character.classList.contains("one")) {
         character.classList.remove("one");
     }
@@ -27,46 +34,25 @@ function aaa() {
     }
 }
 
-
 function changeFaceOne() {
-    aaa();
-    character.classList.add('one');
+    removeFaceClass();
+    character.classList.add("one");
 }
 function changeFaceTwo() {
-    aaa();
-    character.classList.add('two');
+    removeFaceClass();
+    character.classList.add("two");
 }
 function changeFaceThree() {
-    aaa();
-    character.classList.add('three');
+    removeFaceClass();
+    character.classList.add("three");
 }
 
 faceOne.onclick = changeFaceOne;
 faceTwo.onclick = changeFaceTwo;
 faceThree.onclick = changeFaceThree;
 
-
-
-document.addEventListener("keypress", function (event) {
-    if (event.key === "r") {
-        btnRefresh.click();
-    }
-});
-
-AUDIO_BG.volume = 0.2;
+AUDIO_BG.volume = 0.4;
 AUDIO_BG.loop = true;
-
-document.addEventListener("keypress", function (event) {
-    if (event.key === " ") {
-        startGame();
-    }
-});
-
-document.addEventListener("keypress", function (event) {
-    if (event.key === "r") {
-        btnRefresh.click();
-    }
-});
 
 function soundOnOff() {
     btnSound.classList.toggle("sound_on");
@@ -79,9 +65,10 @@ function soundOnOff() {
 btnSound.onclick = soundOnOff;
 
 function startGame() {
-    block.classList.toggle("active");
-    character.classList.toggle("active");
-    gameStartAlert.style.display = "none ";
+    block.classList.add("active");
+    character.classList.add("active");
+    timestart();
+    btnPause.style.display = "none";
     soundOnOff();
 }
 btnPause.onclick = startGame;
@@ -106,10 +93,6 @@ function moveRight() {
         AUDIO_MOVE.play();
     }
 }
-
-let counterSeconds = setInterval(() => {
-    counterDisplayElem.innerHTML = ++count;
-}, 1000);
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
@@ -138,16 +121,26 @@ setInterval(function () {
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
         btnRefresh.style.display = "block";
-        btnPause.style.display = "none";
+        // btnPause.style.display = "block";
         block.style.animation = "none";
+        character.style.bottom = "70px";
+        character.style.filter = "grayscale(100%)";
+        character.style.scale = "2";
+        character.style.left = "100px";
         gameOverAlert.style.display = "block";
         counterDisplayElem.style.left = "20px";
         counterDisplayElem.style.scale = "2";
         AUDIO_BG.pause();
         AUDIO_GAMEOVER.play();
-        clearInterval(counterSeconds);
+        clearInterval(timer);
     }
 }, 10);
 
-document.getElementById("left").addEventListener("touchstart", moveLeft);
-document.getElementById("right").addEventListener("touchstart", moveRight);
+document
+    .getElementById("left")
+    .addEventListener("touchstart", moveLeft, { passive: true });
+document
+    .getElementById("right")
+    .addEventListener("touchstart", moveRight, { passive: true });
+//{ passive: true} ---without it I have warning in colsole
+// Consider marking event handler as 'passive' to make the page more responsive.

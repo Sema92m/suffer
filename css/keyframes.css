@@ -54,7 +54,7 @@
     }
 }
 
-@keyframes faceMove {
+@keyframes scalePluse {
     0% {
         transform: scale(1);
     }
@@ -64,9 +64,9 @@
 }
 @keyframes bgChangeColor {
     0% {
-        background: #413eff;;
+        background: #413eff;
     }
     100% {
-        background:  #9c9aff;;
+        background: #9c9aff;
     }
 }
