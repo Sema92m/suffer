@@ -54,8 +54,6 @@ faceOne.onclick = changeFaceOne;
 faceTwo.onclick = changeFaceTwo;
 faceThree.onclick = changeFaceThree;
 
-AUDIO_BG.loop = true;
-
 function soundOnOff() {
     btnSound.classList.toggle("sound_on");
     if (btnSound.classList.contains("sound_on")) {
@@ -106,6 +104,11 @@ document.addEventListener("keydown", (event) => {
 });
 
 let move = block.addEventListener("animationiteration", () => {
+    let random = Math.floor(Math.random() * 3);
+    left = random * 100;
+    block.style.left = left + "px";
+});
+let move1 = block.addEventListener("animationiteration", () => {
     let random = Math.floor(Math.random() * 3);
     left = random * 100;
     block.style.left = left + "px";

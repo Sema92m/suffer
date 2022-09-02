@@ -144,7 +144,7 @@
 .face_three {
     width: 70px;
     height: 70px;
-    background-image: url("../img/faces/Wojtec.png");
+    background-image: url("../img/faces/wojtec.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -153,7 +153,7 @@
 }
 
 .one {
-    background-image: url("../img/faces/Wojtec.png");
+    background-image: url("../img/faces/wojtec.png");
 }
 
 .face_two,
@@ -165,6 +165,5 @@
 
 .face_three,
 .three {
-    background-image: url("../img/faces/Kierownik.png");
+    background-image: url("../img/faces/kierownik.png");
 }
-
