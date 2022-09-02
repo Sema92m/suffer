@@ -124,9 +124,7 @@ setInterval(function () {
         block.style.animation = "none";
 
         character.style.bottom = "70px";
-        character.style.scale = "1.5";
-        character.style.left = "30px";
-        
+        character.style.left = "60px";
 
         BLOCK_IMG.style.display = "block";
         HEARTS.style.display = "block";
