@@ -3,10 +3,16 @@
         background-position: 0 500px;
     }
 }
+@keyframes backgroundMove2 {
+    to {
+        background-position: 300px 0;
+    }
+}
 
 @keyframes characterMove {
     0% {
         transform: rotate(0deg);
+        scale: 1;
     }
     25% {
         transform: rotate(10deg);
@@ -19,6 +25,26 @@
     }
     100% {
         transform: rotate(0deg);
+        scale: 1.1;
+    }
+}
+@keyframes characterMovePlusY {
+    0% {
+        transform: rotate(0deg);
+        scale: 1;
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        scale: 1.1;
     }
 }
 
@@ -45,7 +71,6 @@
     }
 }
 
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -71,7 +96,6 @@
         background: #9c9aff;
     }
 }
-
 
 @keyframes floating-heart {
     0% {

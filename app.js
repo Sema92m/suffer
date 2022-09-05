@@ -17,6 +17,10 @@ let count = 0;
 const faceOne = document.querySelector(".face_one");
 const faceTwo = document.querySelector(".face_two");
 const faceThree = document.querySelector(".face_three");
+
+const dangerOne = document.querySelector(".danger_one");
+const dangerTwo = document.querySelector(".danger_two");
+const dangerThree = document.querySelector(".danger_three");
 let counterSeconds;
 
 function timestart() {
@@ -25,6 +29,49 @@ function timestart() {
     }, 1000);
 }
 
+//Danger Classes
+function removeDangerClass() {
+    if (block.classList.contains("d_one")) {
+        block.classList.remove("d_one");
+    }
+    if (block.classList.contains("d_two")) {
+        block.classList.remove("d_two");
+    }
+    if (block.classList.contains("d_three")) {
+        block.classList.remove("d_three");
+    }
+    if (BLOCK_IMG.classList.contains("d_one")) {
+        BLOCK_IMG.classList.remove("d_one");
+    }
+    if (BLOCK_IMG.classList.contains("d_two")) {
+        BLOCK_IMG.classList.remove("d_two");
+    }
+    if (BLOCK_IMG.classList.contains("d_three")) {
+        BLOCK_IMG.classList.remove("d_three");
+    }
+}
+
+function changeDangerOne() {
+    removeDangerClass();
+    block.classList.add("d_one");
+    BLOCK_IMG.classList.add("d_one");
+}
+function changeDangerTwo() {
+    removeDangerClass();
+    block.classList.add("d_two");
+    BLOCK_IMG.classList.add("d_two");
+}
+function changeDangerThree() {
+    removeDangerClass();
+    block.classList.add("d_three");
+    BLOCK_IMG.classList.add("d_three");
+}
+
+dangerOne.onclick = changeDangerOne;
+dangerTwo.onclick = changeDangerTwo;
+dangerThree.onclick = changeDangerThree;
+
+//Face classes
 function removeFaceClass() {
     if (character.classList.contains("one")) {
         character.classList.remove("one");
@@ -36,7 +83,6 @@ function removeFaceClass() {
         character.classList.remove("three");
     }
 }
-
 function changeFaceOne() {
     removeFaceClass();
     character.classList.add("one");
@@ -65,6 +111,7 @@ function soundOnOff() {
 btnSound.onclick = soundOnOff;
 
 function startGame() {
+    BLOCK_IMG.classList.remove("before_start");
     block.classList.add("active");
     character.classList.add("active");
     timestart();
@@ -109,6 +156,24 @@ let move = block.addEventListener("animationiteration", () => {
     block.style.left = left + "px";
 });
 
+function endGameChanges() {
+    btnRefresh.style.display = "block";
+    block.style.animation = "none";
+
+    character.style.bottom = "70px";
+    character.style.left = "60px";
+
+    BLOCK_IMG.style.display = "block";
+    HEARTS.style.display = "block";
+    gameOverAlert.style.display = "block";
+    counterDisplayElem.style.left = "20px";
+    counterDisplayElem.style.scale = "2";
+
+    AUDIO_BG.pause();
+    AUDIO_GAMEOVER.play();
+    clearInterval(timer);
+}
+
 setInterval(function () {
     let characterLeft = parseInt(
         window.getComputedStyle(character).getPropertyValue("left")
@@ -120,21 +185,7 @@ setInterval(function () {
         window.getComputedStyle(block).getPropertyValue("top")
     );
     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
-        btnRefresh.style.display = "block";
-        block.style.animation = "none";
-
-        character.style.bottom = "70px";
-        character.style.left = "60px";
-
-        BLOCK_IMG.style.display = "block";
-        HEARTS.style.display = "block";
-        gameOverAlert.style.display = "block";
-        counterDisplayElem.style.left = "20px";
-        counterDisplayElem.style.scale = "2";
-
-        AUDIO_BG.pause();
-        AUDIO_GAMEOVER.play();
-        clearInterval(timer);
+        endGameChanges();
     }
 }, 10);
 

@@ -1,15 +1,30 @@
-.facechange_container {
+.facechange_container,
+.dangerchange_container {
     width: 300px;
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #9c9aff;
-    animation: bgChangeColor 1s linear infinite alternate;
+    background-image: linear-gradient(
+        to right,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+    );
+    animation: backgroundMove2 3s linear infinite;
+}
+.dangerchange_container {
+    background-image: radial-gradient(circle, red, yellow, green);
+    animation: backgroundMove 5s linear infinite;
 }
 
 .title_select_hero {
     display: flex;
     justify-content: center;
     animation: scalePluse 1s linear infinite alternate;
+    background-color: rgb(168, 168, 168);
 }
