@@ -1,3 +1,4 @@
+
 @keyframes backgroundMove {
     to {
         background-position: 0 500px;
@@ -86,14 +87,6 @@
     }
     100% {
         transform: scale(1.2);
-    }
-}
-@keyframes bgChangeColor {
-    0% {
-        background: #413eff;
-    }
-    100% {
-        background: #9c9aff;
     }
 }
 

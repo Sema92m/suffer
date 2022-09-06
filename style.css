@@ -49,6 +49,7 @@ body {
     left: 0px;
     background-image: url("./img/grocka.png");
     animation: slide 1s infinite linear, blockRotate 2s infinite linear;
+    animation-duration: 1s;
     animation-play-state: paused;
 }
 

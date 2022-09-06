@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
         <link rel="icon" type="image/x-icon" href="img/grocka.png" />
+        
 
         <title>Jerzy</title>
     </head>
@@ -17,7 +18,7 @@
                 <div id="game">
                     <div id="counter-display">0</div>
                     <h2 id="gameover-alert">GAME OVER</h2>
-                    <button id="btn-refresh" onClick="window.location.reload();">
+                    <button id="btn-refresh" onclick="window.location.reload();">
                         ⟳ 
                     </button>
                     <button id="btn-start" >
@@ -41,7 +42,7 @@
         <div class="faces">
             <div class="container">
                 <h3 class="title_select_hero">⬇Select HERO⬇</h3>
-                <div class="facechange_container">
+                <div class="facechange_container"  onClick="SOUND_SELECT()">
                     <div class="face_one"></div>
                     <div class="face_two"></div>
                     <div class="face_three"></div>
@@ -51,7 +52,7 @@
         <div class="dangers">
             <div class="container">
                 <h3 class="title_select_hero">⬇Select DANGER⬇</h3>
-                <div class="dangerchange_container">
+                <div class="dangerchange_container" onClick="SOUND_SELECT()">
                     <div class="danger_one"></div>
                     <div class="danger_two"></div>
                     <div class="danger_three"></div>

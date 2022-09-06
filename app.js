@@ -10,6 +10,7 @@ const AUDIO_BG = new Audio("./audio/backgroundmusic.mp3");
 AUDIO_BG.loop = true;
 const AUDIO_GAMEOVER = new Audio("./audio/gameover.mp3");
 const AUDIO_MOVE = new Audio("./audio/move.wav");
+const AUDIO_SELECT = new Audio("./audio/select.wav");
 const BLOCK_IMG = document.querySelector(".block_img");
 const HEARTS = document.querySelector(".hearts");
 let count = 0;
@@ -22,6 +23,10 @@ const dangerOne = document.querySelector(".danger_one");
 const dangerTwo = document.querySelector(".danger_two");
 const dangerThree = document.querySelector(".danger_three");
 let counterSeconds;
+
+function SOUND_SELECT() {
+    return AUDIO_SELECT.play();
+}
 
 function timestart() {
     timer = setInterval(function () {
@@ -70,7 +75,7 @@ function changeDangerThree() {
 dangerOne.onclick = changeDangerOne;
 dangerTwo.onclick = changeDangerTwo;
 dangerThree.onclick = changeDangerThree;
-
+//-----
 //Face classes
 function removeFaceClass() {
     if (character.classList.contains("one")) {
@@ -99,7 +104,7 @@ function changeFaceThree() {
 faceOne.onclick = changeFaceOne;
 faceTwo.onclick = changeFaceTwo;
 faceThree.onclick = changeFaceThree;
-
+//-----
 function soundOnOff() {
     btnSound.classList.toggle("sound_on");
     if (btnSound.classList.contains("sound_on")) {
@@ -110,7 +115,29 @@ function soundOnOff() {
 }
 btnSound.onclick = soundOnOff;
 
+//----------
+let animationDur = window.getComputedStyle(block).animationDuration; //(1s)
+function a(str) {
+    return str.replace(/[s]/gi, "");
+}
+console.log(+a(animationDur));
+
+function decreaseAnimationDuration(from) {
+    let current = from;
+    let timerId = setInterval(function () {
+        if (Math.floor(current * 100) / 100 == 0.3) {
+            clearInterval(timerId);
+        } else current -= 0.1;
+        return console.log(Math.floor(current * 100) / 100 + `${"s"}`);
+    }, 1000);
+}
+
+console.log(animationDur);
+
 function startGame() {
+    decreaseAnimationDuration(animationDur);
+    console.log(animationDur);
+
     BLOCK_IMG.classList.remove("before_start");
     block.classList.add("active");
     character.classList.add("active");
@@ -119,6 +146,8 @@ function startGame() {
     soundOnOff();
 }
 btnPause.onclick = startGame;
+
+//----------------
 
 function moveLeft() {
     let left = parseInt(
@@ -174,20 +203,20 @@ function endGameChanges() {
     clearInterval(timer);
 }
 
-setInterval(function () {
-    let characterLeft = parseInt(
-        window.getComputedStyle(character).getPropertyValue("left")
-    );
-    let blockLeft = parseInt(
-        window.getComputedStyle(block).getPropertyValue("left")
-    );
-    let blockTop = parseInt(
-        window.getComputedStyle(block).getPropertyValue("top")
-    );
-    if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
-        endGameChanges();
-    }
-}, 10);
+// setInterval(() => {
+//     let characterLeft = parseInt(
+//         window.getComputedStyle(character).getPropertyValue("left")
+//     );
+//     let blockLeft = parseInt(
+//         window.getComputedStyle(block).getPropertyValue("left")
+//     );
+//     let blockTop = parseInt(
+//         window.getComputedStyle(block).getPropertyValue("top")
+//     );
+//     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
+//         endGameChanges();
+//     }
+// }, 10);
 
 document
     .getElementById("left")

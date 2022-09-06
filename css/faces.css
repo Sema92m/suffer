@@ -18,7 +18,7 @@
     animation: backgroundMove2 3s linear infinite;
 }
 .dangerchange_container {
-    background-image: radial-gradient(circle, red, yellow, green);
+    background-image: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);
     animation: backgroundMove 5s linear infinite;
 }
 
