@@ -1,3 +1,4 @@
+
 const btnRefresh = document.getElementById("btn-refresh");
 const btnPause = document.getElementById("btn-start");
 const btnSound = document.querySelector(".sound_off_btn");
@@ -34,77 +35,8 @@ function timestart() {
     }, 1000);
 }
 
-//Danger Classes
-function removeDangerClass() {
-    if (block.classList.contains("d_one")) {
-        block.classList.remove("d_one");
-    }
-    if (block.classList.contains("d_two")) {
-        block.classList.remove("d_two");
-    }
-    if (block.classList.contains("d_three")) {
-        block.classList.remove("d_three");
-    }
-    if (BLOCK_IMG.classList.contains("d_one")) {
-        BLOCK_IMG.classList.remove("d_one");
-    }
-    if (BLOCK_IMG.classList.contains("d_two")) {
-        BLOCK_IMG.classList.remove("d_two");
-    }
-    if (BLOCK_IMG.classList.contains("d_three")) {
-        BLOCK_IMG.classList.remove("d_three");
-    }
-}
 
-function changeDangerOne() {
-    removeDangerClass();
-    block.classList.add("d_one");
-    BLOCK_IMG.classList.add("d_one");
-}
-function changeDangerTwo() {
-    removeDangerClass();
-    block.classList.add("d_two");
-    BLOCK_IMG.classList.add("d_two");
-}
-function changeDangerThree() {
-    removeDangerClass();
-    block.classList.add("d_three");
-    BLOCK_IMG.classList.add("d_three");
-}
 
-dangerOne.onclick = changeDangerOne;
-dangerTwo.onclick = changeDangerTwo;
-dangerThree.onclick = changeDangerThree;
-//-----
-//Face classes
-function removeFaceClass() {
-    if (character.classList.contains("one")) {
-        character.classList.remove("one");
-    }
-    if (character.classList.contains("two")) {
-        character.classList.remove("two");
-    }
-    if (character.classList.contains("three")) {
-        character.classList.remove("three");
-    }
-}
-function changeFaceOne() {
-    removeFaceClass();
-    character.classList.add("one");
-}
-function changeFaceTwo() {
-    removeFaceClass();
-    character.classList.add("two");
-}
-function changeFaceThree() {
-    removeFaceClass();
-    character.classList.add("three");
-}
-
-faceOne.onclick = changeFaceOne;
-faceTwo.onclick = changeFaceTwo;
-faceThree.onclick = changeFaceThree;
-//-----
 function soundOnOff() {
     btnSound.classList.toggle("sound_on");
     if (btnSound.classList.contains("sound_on")) {
@@ -116,28 +48,8 @@ function soundOnOff() {
 btnSound.onclick = soundOnOff;
 
 //----------
-let animationDur = window.getComputedStyle(block).animationDuration; //(1s)
-function a(str) {
-    return str.replace(/[s]/gi, "");
-}
-console.log(+a(animationDur));
-
-function decreaseAnimationDuration(from) {
-    let current = from;
-    let timerId = setInterval(function () {
-        if (Math.floor(current * 100) / 100 == 0.3) {
-            clearInterval(timerId);
-        } else current -= 0.1;
-        return console.log(Math.floor(current * 100) / 100 + `${"s"}`);
-    }, 1000);
-}
-
-console.log(animationDur);
 
 function startGame() {
-    decreaseAnimationDuration(animationDur);
-    console.log(animationDur);
-
     BLOCK_IMG.classList.remove("before_start");
     block.classList.add("active");
     character.classList.add("active");
@@ -203,20 +115,20 @@ function endGameChanges() {
     clearInterval(timer);
 }
 
-// setInterval(() => {
-//     let characterLeft = parseInt(
-//         window.getComputedStyle(character).getPropertyValue("left")
-//     );
-//     let blockLeft = parseInt(
-//         window.getComputedStyle(block).getPropertyValue("left")
-//     );
-//     let blockTop = parseInt(
-//         window.getComputedStyle(block).getPropertyValue("top")
-//     );
-//     if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
-//         endGameChanges();
-//     }
-// }, 10);
+setInterval(() => {
+    let characterLeft = parseInt(
+        window.getComputedStyle(character).getPropertyValue("left")
+    );
+    let blockLeft = parseInt(
+        window.getComputedStyle(block).getPropertyValue("left")
+    );
+    let blockTop = parseInt(
+        window.getComputedStyle(block).getPropertyValue("top")
+    );
+    if (characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
+        endGameChanges();
+    }
+}, 10);
 
 document
     .getElementById("left")
@@ -226,3 +138,78 @@ document
     .addEventListener("touchstart", moveRight, { passive: true });
 //{ passive: true} ---without it I have warning in colsole
 // Consider marking event handler as 'passive' to make the page more responsive.
+
+
+//Danger Classes
+function removeDangerClass() {
+    if (block.classList.contains("d_one")) {
+        block.classList.remove("d_one");
+    }
+    if (block.classList.contains("d_two")) {
+        block.classList.remove("d_two");
+    }
+    if (block.classList.contains("d_three")) {
+        block.classList.remove("d_three");
+    }
+    if (BLOCK_IMG.classList.contains("d_one")) {
+        BLOCK_IMG.classList.remove("d_one");
+    }
+    if (BLOCK_IMG.classList.contains("d_two")) {
+        BLOCK_IMG.classList.remove("d_two");
+    }
+    if (BLOCK_IMG.classList.contains("d_three")) {
+        BLOCK_IMG.classList.remove("d_three");
+    }
+}
+
+function changeDangerOne() {
+    removeDangerClass();
+    block.classList.add("d_one");
+    BLOCK_IMG.classList.add("d_one");
+}
+function changeDangerTwo() {
+    removeDangerClass();
+    block.classList.add("d_two");
+    BLOCK_IMG.classList.add("d_two");
+}
+function changeDangerThree() {
+    removeDangerClass();
+    block.classList.add("d_three");
+    BLOCK_IMG.classList.add("d_three");
+}
+
+dangerOne.onclick = changeDangerOne;
+dangerTwo.onclick = changeDangerTwo;
+dangerThree.onclick = changeDangerThree;
+//-----
+
+
+//Face classes
+function removeFaceClass() {
+    if (character.classList.contains("one")) {
+        character.classList.remove("one");
+    }
+    if (character.classList.contains("two")) {
+        character.classList.remove("two");
+    }
+    if (character.classList.contains("three")) {
+        character.classList.remove("three");
+    }
+}
+function changeFaceOne() {
+    removeFaceClass();
+    character.classList.add("one");
+}
+function changeFaceTwo() {
+    removeFaceClass();
+    character.classList.add("two");
+}
+function changeFaceThree() {
+    removeFaceClass();
+    character.classList.add("three");
+}
+
+faceOne.onclick = changeFaceOne;
+faceTwo.onclick = changeFaceTwo;
+faceThree.onclick = changeFaceThree;
+//-----
