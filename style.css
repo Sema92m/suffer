@@ -43,7 +43,13 @@ body {
     animation: characterMove 2s linear infinite alternate;
     /* animation-play-state: paused; */
 }
-
+.character-afterEnd {
+    bottom: 70px;
+    left: 60px !important;
+}
+.display-block{
+    display: block !important;
+}
 .block {
     top: 500px;
     left: 0px;
@@ -78,6 +84,11 @@ body {
     font-size: 30px;
     color: #9c9aff;
 }
+.counter-display-afterEnd {
+    left: 20px !important;
+    transform: scale(2);
+}
+
 
 #btn-refresh,
 #btn-start {

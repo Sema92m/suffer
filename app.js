@@ -1,3 +1,5 @@
+// import { timestart } from './scripts/timeStart.js';
+
 
 const btnRefresh = document.getElementById("btn-refresh");
 const btnPause = document.getElementById("btn-start");
@@ -71,6 +73,7 @@ function moveLeft() {
         AUDIO_MOVE.play();
     }
 }
+
 function moveRight() {
     let left = parseInt(
         window.getComputedStyle(character).getPropertyValue("left")
@@ -98,17 +101,13 @@ let move = block.addEventListener("animationiteration", () => {
 });
 
 function endGameChanges() {
-    btnRefresh.style.display = "block";
+    btnRefresh.classList.add('display-block')
+    BLOCK_IMG.classList.add('display-block')
+    HEARTS.classList.add('display-block')
+    gameOverAlert.classList.add('display-block')
+    character.classList.add('character-afterEnd')
+    counterDisplayElem.classList.add('counter-display-afterEnd')   
     block.style.animation = "none";
-
-    character.style.bottom = "70px";
-    character.style.left = "60px";
-
-    BLOCK_IMG.style.display = "block";
-    HEARTS.style.display = "block";
-    gameOverAlert.style.display = "block";
-    counterDisplayElem.style.left = "20px";
-    counterDisplayElem.style.scale = "2";
 
     AUDIO_BG.pause();
     AUDIO_GAMEOVER.play();
@@ -162,25 +161,22 @@ function removeDangerClass() {
     }
 }
 
-function changeDangerOne() {
+
+dangerOne.onclick = function() {
     removeDangerClass();
     block.classList.add("d_one");
     BLOCK_IMG.classList.add("d_one");
 }
-function changeDangerTwo() {
+dangerTwo.onclick = function() {
     removeDangerClass();
     block.classList.add("d_two");
     BLOCK_IMG.classList.add("d_two");
 }
-function changeDangerThree() {
+dangerThree.onclick = function() {
     removeDangerClass();
     block.classList.add("d_three");
     BLOCK_IMG.classList.add("d_three");
 }
-
-dangerOne.onclick = changeDangerOne;
-dangerTwo.onclick = changeDangerTwo;
-dangerThree.onclick = changeDangerThree;
 //-----
 
 
@@ -196,20 +192,17 @@ function removeFaceClass() {
         character.classList.remove("three");
     }
 }
-function changeFaceOne() {
+
+
+faceOne.onclick = function(){
     removeFaceClass();
     character.classList.add("one");
 }
-function changeFaceTwo() {
+faceTwo.onclick = function(){
     removeFaceClass();
     character.classList.add("two");
 }
-function changeFaceThree() {
+faceThree.onclick = function(){
     removeFaceClass();
     character.classList.add("three");
 }
-
-faceOne.onclick = changeFaceOne;
-faceTwo.onclick = changeFaceTwo;
-faceThree.onclick = changeFaceThree;
-//-----
