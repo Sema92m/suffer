@@ -1,6 +1,5 @@
 // import { timestart } from './scripts/timeStart.js';
 
-
 const btnRefresh = document.getElementById("btn-refresh");
 const btnPause = document.getElementById("btn-start");
 const btnSound = document.querySelector(".sound_off_btn");
@@ -36,8 +35,6 @@ function timestart() {
         counterDisplayElem.innerHTML = ++count;
     }, 1000);
 }
-
-
 
 function soundOnOff() {
     btnSound.classList.toggle("sound_on");
@@ -101,12 +98,12 @@ let move = block.addEventListener("animationiteration", () => {
 });
 
 function endGameChanges() {
-    btnRefresh.classList.add('display-block')
-    BLOCK_IMG.classList.add('display-block')
-    HEARTS.classList.add('display-block')
-    gameOverAlert.classList.add('display-block')
-    character.classList.add('character-afterEnd')
-    counterDisplayElem.classList.add('counter-display-afterEnd')   
+    btnRefresh.classList.add("display-block");
+    BLOCK_IMG.classList.add("display-block");
+    HEARTS.classList.add("display-block");
+    gameOverAlert.classList.add("display-block");
+    character.classList.add("character-afterEnd");
+    counterDisplayElem.classList.add("counter-display-afterEnd");
     block.style.animation = "none";
 
     AUDIO_BG.pause();
@@ -139,70 +136,50 @@ document
 // Consider marking event handler as 'passive' to make the page more responsive.
 
 
-//Danger Classes
-function removeDangerClass() {
-    if (block.classList.contains("d_one")) {
-        block.classList.remove("d_one");
-    }
-    if (block.classList.contains("d_two")) {
-        block.classList.remove("d_two");
-    }
-    if (block.classList.contains("d_three")) {
-        block.classList.remove("d_three");
-    }
-    if (BLOCK_IMG.classList.contains("d_one")) {
-        BLOCK_IMG.classList.remove("d_one");
-    }
-    if (BLOCK_IMG.classList.contains("d_two")) {
-        BLOCK_IMG.classList.remove("d_two");
-    }
-    if (BLOCK_IMG.classList.contains("d_three")) {
-        BLOCK_IMG.classList.remove("d_three");
-    }
+function removeBlockClassList() {
+    const blockClassList = ["d_one", "d_two", "d_three"];
+    BLOCK_IMG.classList.remove(...blockClassList);
+    block.classList.remove(...blockClassList);
 }
 
 
-dangerOne.onclick = function() {
-    removeDangerClass();
-    block.classList.add("d_one");
-    BLOCK_IMG.classList.add("d_one");
-}
-dangerTwo.onclick = function() {
-    removeDangerClass();
-    block.classList.add("d_two");
-    BLOCK_IMG.classList.add("d_two");
-}
-dangerThree.onclick = function() {
-    removeDangerClass();
-    block.classList.add("d_three");
-    BLOCK_IMG.classList.add("d_three");
-}
+dangerOne.onclick = function () {
+    if (!block.classList.contains("d_one")) {
+        removeBlockClassList();
+
+        block.classList.add("d_one");
+        BLOCK_IMG.classList.add("d_one");
+    }
+};
+dangerTwo.onclick = function () {
+    if (!block.classList.contains("d_two")) {
+        removeBlockClassList();
+
+        block.classList.add("d_two");
+        BLOCK_IMG.classList.add("d_two");
+    }
+};
+dangerThree.onclick = function () {
+    if (!block.classList.contains("d_three")) {
+        removeBlockClassList();
+
+        block.classList.add("d_three");
+        BLOCK_IMG.classList.add("d_three");
+    }
+};
 //-----
 
+// Face classes
 
-//Face classes
-function removeFaceClass() {
-    if (character.classList.contains("one")) {
-        character.classList.remove("one");
-    }
-    if (character.classList.contains("two")) {
-        character.classList.remove("two");
-    }
-    if (character.classList.contains("three")) {
-        character.classList.remove("three");
-    }
-}
-
-
-faceOne.onclick = function(){
-    removeFaceClass();
+faceOne.onclick = function () {
+    character.classList.remove("two", "three");
     character.classList.add("one");
-}
-faceTwo.onclick = function(){
-    removeFaceClass();
+};
+faceTwo.onclick = function () {
+    character.classList.remove("one", "three");
     character.classList.add("two");
-}
-faceThree.onclick = function(){
-    removeFaceClass();
+};
+faceThree.onclick = function () {
+    character.classList.remove("one", "two");
     character.classList.add("three");
-}
+};
